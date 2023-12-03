@@ -12,6 +12,8 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
         <dd class="col-sm-10">
              @Html.DisplayFor(model => model.Nome)
         </dd>
@@ -27,6 +29,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Quantidade)
         </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Cor)
         </dt>
         <dd class = "col-sm-10">
@@ -44,12 +47,11 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Material)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ProdutoID }) |
+    <button type="button" class="btn btn-outline-primary" onclick="window.location.href='@Url.Action("Edit", new { id = Model.ProdutoID })'">
+        Editar
+    </button> |
     <a asp-action="Index">Retornar para a lista de produtos</a>
 </div>

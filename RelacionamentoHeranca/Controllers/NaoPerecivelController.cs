@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RelacionamentoHeranca.Data;
-using RelacionamentoHeranca.Migrations;
 using RelacionamentoHeranca.Models;
 using System.Linq;
 

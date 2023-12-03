@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RelacionamentoHeranca.Data;
-using RelacionamentoHeranca.Migrations;
 using RelacionamentoHeranca.Models;
-using System.Linq;
+using System.Globalization;
 
 public class PerecivelController : Controller
 {
@@ -31,6 +30,8 @@ public class PerecivelController : Controller
         {
             if (ModelState.IsValid)
             {
+                perecivel.Valor = double.Parse(perecivel.Valor.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
+                perecivel.Peso = double.Parse(perecivel.Peso.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
                 _context.Add(perecivel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -69,6 +70,8 @@ public class PerecivelController : Controller
         {
             try
             {
+                perecivel.Valor = double.Parse(perecivel.Valor.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
+                perecivel.Peso = double.Parse(perecivel.Peso.ToString(CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
                 _context.Update(perecivel);
                 await _context.SaveChangesAsync();
             }

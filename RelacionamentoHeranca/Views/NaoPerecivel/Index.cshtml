@@ -8,12 +8,14 @@
 <h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Criar novo</a>
+    <button type="button" class="btn btn-outline-danger" onclick="window.location.href='NaoPerecivel/Create'">
+        Criar Novo
+    </button>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
@@ -32,7 +34,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Material)
             </th>
-
             <th></th>
         </tr>
     </thead>
@@ -58,9 +59,17 @@
                 @Html.DisplayFor(modelItem => item.Material)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.ProdutoID }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoID }) |
-                @Html.ActionLink("Deletar", "Delete", new { id = item.ProdutoID })
+                <button type="button" class="btn btn-outline-primary" onclick="window.location.href='@Url.Action("Edit", new { id = item.ProdutoID })'">
+                    Editar
+                </button>
+
+                <button type="button" class="btn btn-outline-primary" onclick="window.location.href='@Url.Action("Details", new { id = item.ProdutoID })'">
+                    Detalhes
+                </button>
+
+                <button type="button" class="btn btn-outline-danger" onclick="window.location.href='@Url.Action("Delete", new { id = item.ProdutoID })'">
+                    Deletar
+                </button>
             </td>
         </tr>
 }

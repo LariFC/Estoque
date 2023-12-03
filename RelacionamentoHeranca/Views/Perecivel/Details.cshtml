@@ -45,12 +45,14 @@
             @Html.DisplayNameFor(model => model.Peso)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Peso)
+            @Html.DisplayFor(model => model.Peso, "{0:0.00}")
         </dd>
 
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ProdutoID }) |
+     <button type="button" class="btn btn-outline-primary" onclick="window.location.href='@Url.Action("Edit", new { id = Model.ProdutoID })'">
+     Editar
+     </button> |
     <a asp-action="Index">Retornar para a lista de produtos</a>
 </div>
